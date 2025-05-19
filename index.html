@@ -4,8 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>bruh</h1>
+    <!-- Precarregamento -->
+    <div id="preloader">
+        <div class="logo-container">
+            <img src="imagens/logo.png" alt="Logo" class="logo">
+            <img src="imagens/nome.png" alt="Nome" class="nome">
+            <div class="loader" id="loader"></div>
+        </div>
+    </div>
+    <!-- Fim do Precarregamento -->
+
+    <!-- Conteudo Principal -->
+    <div id="conteudo" style="display: none;">
+        <div class="topo">
+            <img src="imagens/logo.png" id="logoTopo">
+        </div>
+    </div>
+    <!-- Fim do Conteudo Principal -->
+
+    <!-- JAVASCRIPT -->
+    <script>
+    window.addEventListener('load', () => {
+        const nome = document.querySelector(".nome");
+        const logo = document.querySelector(".logo");
+        const loader = document.querySelector(".loader");
+        const preloader = document.getElementById("preloader");
+        const conteudo = document.getElementById("conteudo");
+
+        setTimeout(() => {
+            nome.style.transition = "opacity 0.8s ease";
+            logo.style.transition = "transform 0.8s ease";
+            nome.style.opacity = 0;
+            logo.style.transform = "translateY(-20px) scale(1.5)";
+        }, 2000);
+
+        setTimeout(() => {
+            loader.style.display = "block";
+        }, 3000);
+
+        setTimeout(() => {
+            preloader.style.display = "none";
+            conteudo.style.display = "block";
+        }, 5200);
+    });
+    </script>
 </body>
 </html>
